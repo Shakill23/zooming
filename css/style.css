@@ -6,19 +6,33 @@
     box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     display: none;
 }
-    
 
-.navbar{
-    & img[alt='logo'] {
-        width: 5rem;
-    } 
+/* display -> grid */
+:is(body) {
+    display: grid;
 }
 
-img{
+/* No. rows */
+body {
+    grid-template-rows: auto minmax(1fr, 100dvh) auto;
+}
+
+.navbar {
+    & img[alt='logo'] {
+        width: 5rem;
+    }
+}
+
+img {
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
+}
+
+/* text-align center */
+:is(h2, footer p) {
+    text-align: center;
 }
