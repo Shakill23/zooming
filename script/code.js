@@ -1,7 +1,7 @@
 // Create products and store it on the local storage
 let wrapper = document.querySelector('[recentProducts]')
 // let products = JSON.parse(localStorage.getItem('products'))? JSON.parse(localStorage.getItem('products')) : localStorage.setItem('products', JSON.stringify(
-    let products = JSON.parse(localStorage.getItem('products'))
+let products = JSON.parse(localStorage.getItem('products'))
     ? JSON.parse(localStorage.getItem('products'))
     : localStorage.setItem('products', JSON.stringify([
         {
@@ -50,7 +50,8 @@ let wrapper = document.querySelector('[recentProducts]')
 
         }
     ]));
-    function recentProducts() {
+function recentProducts() {
+    try {
         let arrSize = products.length
         let latestProducts = products.reverse().slice(0, arrSize >> 1)
         latestProducts.forEach(product => {
@@ -62,6 +63,9 @@ let wrapper = document.querySelector('[recentProducts]')
       </div>
     </div>`
         });
+    } catch (e) {
+        wrapper.textContent = "Please contact our administrator"
     }
-    recentProducts()
+}
+recentProducts()
 
